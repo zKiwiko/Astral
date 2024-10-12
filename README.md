@@ -20,11 +20,13 @@ Global Variables to use inside your Lua scripts.
 Contains [controller stick resolutions](https://github.com/zKiwiko/Stick-Resolutions) from ranges -32768 to 32767.
 These values are in an array and can be grabbed via: ```g_res[]``` the number in the [ ] can only be an integer from -100 to 100.
 
-g_res is best used with [set_axis](#set_axis) to more conviently set axis values.
+g_res is best used with [set_axis](#set_axis) to more conviently set axis values and to pull data of the axis.
 
-```set_axis(Axis, g_res[int]```. 
+```set_axis(Axis, g_res[int]```. // Will set the axis to the integers stick resolution value.
 
-If the 'int' is set to 100, itll set the axis to 32767.
+```if get_axis(Axis) > g_res[int] .. ``` // Will return true if the stick is pushed passed the g_res value.
+
+If the 'int' is set to 100, itll set the axis to 32767. and vice versa with -100.
 
 ## g_FullSet
 Simple variable you can use to full set an axis. Best used with Trigger Axis'. Cannot be used with buttons using [set_val](#set_val) as its a constant 32767.
@@ -34,7 +36,13 @@ Simple variable you can use to full set an axis. Best used with Trigger Axis'. C
 Will full set an axis to 32767. Alternatively you can do ```-g_FullSet``` to obtain a negative integer (-32767).
 
 ## g_UnSet
-Will set an axis or button to 0
+Will set an axis or button to 0.
+
+``` 
+set_axis(Axis, g_UnSet)
+``` // Will set the axis to 0.
+
+```set_val(Button, g_UnSet)``` // Will unset a button, as if youre not pressing it.
 
  
 
