@@ -118,6 +118,36 @@ end
 ```
 This example will print "True" if the A button is being pressed.
 
+## get_press
+Returns true when a button is just pressed, different from "get_val" as get_val will always return true if the button is pressed.
+```lua
+get_press(Button)
+```
+Valid buttons can be found [here](#get_val), aswell as what they correlate to for their respective platform.
+
+An example is as follows:
+```lua
+if get_press("A") then
+ print("A was pressed")
+end
+```
+This example will print the message when the A button is just pressed. But wont if its held down afterward.
+
+## get_release
+Returns true when a button is released after being pressed.
+```lua
+get_release(Button)
+```
+Valid buttons can be found [here](#get_val), aswell as what they correlate to for their respective platform.
+
+An example is as follows:
+```lua
+if get_release("A") then
+ print("A was just released")
+end
+```
+This example will print the message if the A button is released after being pressed.
+
 ## set_val
 Will set a face button a value of 1 or 0. 0 being unpressed, 1 being pressed.
 
@@ -142,13 +172,65 @@ In this example, if you press the A button, Itll press the B button aswell as pr
 Will set a controller axis to a value.
 
 ```lua
-set_axis("LX", 32767) -- Set the stick all the way to the Right using a manual 16 bit value.
-set_axis("LY", g_res[100]) -- Set the stick all the way to the Right using g_res.
+set_axis(Axis, Int)
 ```
 
 Valid Axis' can be seen [here](#get_axis).
 
 Setting trigger axis' values are different from SDL, as SDL uses ranges from -32768 to 32767, while ViGEm uses ranges from 0 - 255. 0 being unpressed, 255 being full pressed.
+
+An example of using this is as follows:
+```lua
+
+if get_val("A") then
+ set_axis("LX", 32767)
+ set_axis("LT", 255)
+end
+```
+In this example, when the A button is being pressed, Itll set the LX axis to 32767; Fully right. While also setting the Left Trigger axis to 255; fully pressed.
+
+## convert
+Converts a int or floating point number into a valid stick resolution value.
+```lua
+convert(num)
+```
+The num parameter can hold either an Integer; A whole number, Or a Float number; a decimal number.
+
+A quick example of what itll return is as follows:
+```lua
+print(convert(1)) -- prints 328
+print(convert(1.25)) -- prints 409
+```
+Converted values can be used with set_axis to set decimal values to the respected axis.
+```lua
+set_axis("LX", convert(1.25)) -- will set the LX axis to 409
+```
+
+## sleep
+Sleeps the scripts run time for a set number of miliseconds before running again.
+sleep can be used to create a delay in functions, or the script as a whole.
+
+```lua
+sleep(num)
+```
+The num parameter can only hold an integer; whole number.
+
+## clamp
+Clamps a number between 2 number.
+```lua
+clamp(num, min, max)
+```
+each parameter can only hold and integer; whole number.
+
+An example is as follows:
+```lua
+Var = 11
+print(clamp(Var, 0, 10)
+```
+Since the "Var" variable is over the max number; 10, it will clamp it to the max and print "10".
+
+
+
 
 
 
