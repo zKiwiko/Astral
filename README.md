@@ -231,7 +231,7 @@ sleep(num)
 The num parameter can only hold an integer; whole number.
 
 ## clamp
-Clamps a number between 2 number.
+Clamps a number between a min number and a max number.
 ```lua
 clamp(num, min, max)
 ```
