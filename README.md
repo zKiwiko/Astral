@@ -12,6 +12,21 @@ Astral uses a variety of frameworks to bring the best performance into scripting
 
 - [SDL 2](https://github.com/libsdl-org/SDL) // Used for gaining controller data
 
+# Installation
+
+Several things are REQUIRED for this application to work properly.
+
+First you will need to install the [ViGEm Bus Driver](https://github.com/nefarius/ViGEmBus) for the virtual controller and emulation.
+Then you will need to install [HidHide](https://github.com/nefarius/HidHide) to hide the physical controller and only show the virtual one from ViGEm.
+
+After installing HidHide, open the HidHide configurator and add Astral to the whitelist, so its able to see the physical controller in the Application Tab.
+In the devices tab, Click the checkmark next to what ever controller you have plugged in. This is show a red lock button next to the name to show it is being
+blocked. At the bottom of this tab make sure to check the "Enable device hiding" box at the bottom of the devices tab to enable device hiding.
+
+Afterward, Restart your system to confirm the changes made.
+
+To reverse these changes, uncheck your controller in the devices tab, and disable device hiding then restart your system.
+
 # Global Variables
 
 Global Variables to use inside your Lua scripts. All default lua modules will work aswell, such as math, io, coroutine, debug, base64, package, string and table.
