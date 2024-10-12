@@ -287,7 +287,7 @@ while true do
     end
 end
 ```
-This loop doesnt use the [sleep function](#sleep) to avoid any desyncs with the remap and set values, and because of that it can cause high cpu usage.
+This loop doesnt use the [sleep function](#sleep) to avoid any desyncs with the remap and set values, and because of that it can cause high cpu usage. Granted you can use a very small 'sleep' value, but it may cause stutters.
 
 Be careful when using loops.
 
