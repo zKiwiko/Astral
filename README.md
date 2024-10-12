@@ -1,7 +1,7 @@
 # Astral
 #### Disclaimer: This project is not open source. This Repository is for ease of download as well as documentation for the project.
 
-'Astral' is a program that intergrates controller scripting/emulating into [Lua lang](https://lua.org). It made to bring controller scripting to PC without the need of purchasing a physical device.
+'Astral' is a program that intergrates controller scripting/emulating into [Lua lang](https://lua.org). Its made to bring controller scripting to PC without the need of purchasing a physical device.
 Astral uses a variety of frameworks to bring the best performance into scripting, thus being:
 
 - [HidHide](https://github.com/nefarius/HidHide)
