@@ -244,6 +244,52 @@ print(clamp(Var, 0, 10)
 ```
 Since the "Var" variable is over the max number; 10, it will clamp it to the max and print "10".
 
+## loopctrl
+Change the current speed at which controller updates are handled.
+Default value is 16. One update every 60 frames.
+
+```lua
+loopctrl(num)
+```
+The num parameter has to be an integer; whole number, and also greater than 0. Any value close to 0 can lead to high cpu or ram usage.
+
+## get_loopctrl
+Returns the current loop delay.
+```lua
+get_loopdelay()
+```
+
+# Lua Loops
+
+using while or for loops in your Lua script may cause issues. The lua code is ran in a threaded loop along side a C++ function that maps physical inputs to the virtual controller.
+
+An example on how to avoid this is as followed:
+```lua
+function createPolar(_radius, _speed)
+    local angle = 0 
+    return function()
+        set_axis("LY", _radius * convert(math.sin(angle * math.pi / 180)))
+        set_axis("LX", _radius * convert(math.cos(angle * math.pi / 180)))
+
+        angle = angle + _speed
+
+        if angle >= 360 then
+            angle = angle - 360
+        end
+    end
+end
+
+local Polar = createPolar(20, 1)
+
+while true do
+    if get_axis("LT") >= g_res[90] and get_axis("RT") >= g_res[90] then
+        Polar()  
+    end
+end
+```
+This loop doesnt use the [sleep function](#sleep) to avoid any desyncs with the remap and set values, and because of that it can cause high cpu usage.
+
+Be careful when using loops.
 
 
 
