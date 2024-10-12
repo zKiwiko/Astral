@@ -204,6 +204,23 @@ end
 ```
 In this example, when the A button is being pressed, Itll set the LX axis to 32767; Fully right. While also setting the Left Trigger axis to 255; fully pressed.
 
+## polar_axis
+This function will spin the given stick in a circle.
+```lua
+polar_axis(Polar Axis, Radius, Angle)
+```
+Valid Polar Axis' are 'PL'; Left Stick, and 'PR'; Right Stick.
+
+The Radius parameter holds how big the circle drawn will be, and Angle determines how fast it does spin.
+
+An example is as follows:
+```lua
+if get_axis("LT") >= g_res[90] and get_axis("RT") >= g_res[90] then
+        polar_axis("PL", 20, 20)
+end
+```
+This example will spin the Left Stick with a radius of 20 (away from 0) as long as the Left and Right Trigger are held down fully.
+
 ## convert
 Converts a int or floating point number into a valid stick resolution value.
 ```lua
