@@ -23,6 +23,8 @@ After installing HidHide, open the HidHide configurator and add Astral to the wh
 In the devices tab, Click the checkmark next to what ever controller you have plugged in. This is show a red lock button next to the name to show it is being
 blocked. At the bottom of this tab make sure to check the "Enable device hiding" box at the bottom of the devices tab to enable device hiding.
 
+Next [install the latest VCRedist for your computer](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170).
+
 Afterward, Restart your system to confirm the changes made.
 
 To reverse these changes, uncheck your controller in the devices tab, and disable device hiding then restart your system.
