@@ -29,6 +29,17 @@ Afterward, Restart your system to confirm the changes made.
 
 To reverse these changes, uncheck your controller in the devices tab, and disable device hiding then restart your system.
 
+# Introduction
+
+Lua Scripting inside Astral has one simple requirement. Every Script must contain a `Main()` function. (case sensitive).
+It is made this way so variables declared outside of `Main()` dont get reset as the lua code is ran in a while loop in C++ for preformance and consistency with the
+other functions that NEED to be ran in one.
+
+```lua
+function Main() -- case sensitive. Has to be Main not main
+-- code --
+end
+```
 
 # Packages
 Astral uses a `.ldll` (Lua Dynamic Linking Library) and `.clua` (compiled Lua) as package file types. They are both compiled by Astral; the only difference is the code inside them.
