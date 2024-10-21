@@ -31,39 +31,28 @@ To reverse these changes, uncheck your controller in the devices tab, and disabl
 
 # Global Variables
 
-Global Variables to use inside your Lua scripts. All default lua modules will work aswell, such as math, io, coroutine, debug, base64, package, string and table.
+Global Variables to use inside your Lua scripts.
 
-## g_res
+## gres
 Contains [controller stick resolutions](https://github.com/zKiwiko/Stick-Resolutions) from ranges -32768 to 32767.
-These values are in an array and can be grabbed via: ```g_res[]``` the number in the [ ] can only be an integer from -100 to 100.
+These values are in an array and can be grabbed via: ```gres[]``` the number in the [ ] can only be an integer from -100 to 100.
 
-g_res is best used with [set_axis](#set_axis) to more conviently set axis values and to pull data of the axis.
+gres is best used with [set_axis](#set_axis) to more conviently set axis values and to pull data of the axis.
 
 ```lua
-set_axis(Axis, g_res[int]. -- Will set the axis to the integers stick resolution value.
+set_axis(Axis, gres[int]. -- Will set the axis to the integers stick resolution value.
 
-if get_axis(Axis) > g_res[int] .. -- Will return true when the axis is pushed passed the g_res value.
+if get_axis(Axis) > gres[int] .. -- Will return true when the axis is pushed passed the gres value.
 ```
 
 If the 'int' is set to 100, itll set the axis to 32767. and vice versa with -100.
 
-## g_FullSet
-Simple variable you can use to full set an axis. Best used with Trigger Axis'. Cannot be used with buttons using [set_val](#set_val) as its a constant 32767.
+# Packages
+Astral uses a `.ldll` (Lua Dynamic Linking Library) and `.clua` (compiled Lua) as package file types. They are both compiled by Astral; the only difference is the code inside them.
+`.ldll` files contain C++ code using the Lua Library and can be called at any point during run time, Similar to calling a `.dll` file in Python or Lua. `.ldll` files can contain 
+new globals Astral doesnt already contain. `.clua` contains compiled Lua code which can contain generic Lua code along with globals declared by Astral.
 
-```lua
-set_axis(Axis, g_FullSet)
-```
-
-Will full set an axis to 32767. Alternatively you can do ```-g_FullSet``` to obtain a negative integer (-32767).
-
-## g_UnSet
-Will set an axis or button to 0.
-
-```lua 
-set_axis(Axis, g_UnSet) // Will set an Axis to 0.
-
-set_val(Button, g_UnSet) // Will set a button to 0, as if youre not pressing it.
-```
+Default Lua packages are natively supported aswell, such as math, io, coroutine, debug, base64, package, string and table.
 
 # Global Functions
 Functions usable within your lua script.
