@@ -399,6 +399,10 @@ set_axis(Axis, Int)
 
 Valid Axis' can be seen [here](#get_axis).
 
+The Int param can hold a number between -32768 to 32767. 
+On an X axis, 32767 is fully right, and -32768 is fully left.
+On an Y axis, 32767 is fully down, and -32768 is fully up.
+
 Setting trigger axis' values are different from SDL, as SDL uses ranges from -32768 to 32767, while ViGEm uses ranges from 0 - 255. 0 being unpressed, 255 being full pressed.
 
 An example of using this is as follows:
