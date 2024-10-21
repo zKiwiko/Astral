@@ -93,9 +93,10 @@ Valid Axis' are:
 - RX -> Right Stick Left and Right on a Controller. Min range; -32767, Max range; 32767.
 
 - LT -> Left trigger of a Controller. Min range; -32767, Max range; 32767.
- -RT -> Right Trigger of a Controller.Min range; -32767, Max range; 32767.
+- RT -> Right Trigger of a Controller.Min range; -32767, Max range; 32767.
 
 With Triggers -32767 is equal to not pressing, 32767 is equal to a full press.
+Use [gres](#gres) to get accurate numbers.
 
 An example way of using get_axis is as follows:
 
