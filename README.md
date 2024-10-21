@@ -29,6 +29,14 @@ Afterward, Restart your system to confirm the changes made.
 
 To reverse these changes, uncheck your controller in the devices tab, and disable device hiding then restart your system.
 
+
+# Packages
+Astral uses a `.ldll` (Lua Dynamic Linking Library) and `.clua` (compiled Lua) as package file types. They are both compiled by Astral; the only difference is the code inside them.
+`.ldll` files contain C++ code using the Lua Library and can be called at any point during run time, Similar to calling a `.dll` file in Python or Lua. `.ldll` files can contain 
+new globals Astral doesnt already contain. `.clua` contains compiled Lua code which can contain generic Lua code along with globals declared by Astral.
+
+Default Lua packages are natively supported aswell, such as math, io, coroutine, debug, base64, package, string and table.
+
 # Global Variables
 
 Global Variables to use inside your Lua scripts.
@@ -46,13 +54,6 @@ if get_axis(Axis) > gres[int] .. -- Will return true when the axis is pushed pas
 ```
 
 If the 'int' is set to 100, itll set the axis to 32767. and vice versa with -100.
-
-# Packages
-Astral uses a `.ldll` (Lua Dynamic Linking Library) and `.clua` (compiled Lua) as package file types. They are both compiled by Astral; the only difference is the code inside them.
-`.ldll` files contain C++ code using the Lua Library and can be called at any point during run time, Similar to calling a `.dll` file in Python or Lua. `.ldll` files can contain 
-new globals Astral doesnt already contain. `.clua` contains compiled Lua code which can contain generic Lua code along with globals declared by Astral.
-
-Default Lua packages are natively supported aswell, such as math, io, coroutine, debug, base64, package, string and table.
 
 # Global Functions
 Functions usable within your lua script.
