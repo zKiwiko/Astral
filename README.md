@@ -426,7 +426,7 @@ The Radius parameter holds how big the circle drawn will be, and Angle determine
 
 An example is as follows:
 ```lua
-if get_axis("LT") >= g_res[90] and get_axis("RT") >= g_res[90] then
+if get_axis("LT") >= gres[90] and get_axis("RT") >= gres[90] then
         polar_axis("PL", 20, 20)
 end
 ```
@@ -490,33 +490,6 @@ get_loopdelay()
 # Lua Loops
 
 using while or for loops in your Lua script may cause issues. The lua code is ran in a threaded loop along side a C++ function that maps physical inputs to the virtual controller.
-
-An example on how to avoid this is as followed:
-```lua
-function createPolar(_radius, _speed)
-    local angle = 0 
-    return function()
-        set_axis("LY", _radius * convert(math.sin(angle * math.pi / 180)))
-        set_axis("LX", _radius * convert(math.cos(angle * math.pi / 180)))
-
-        angle = angle + _speed
-
-        if angle >= 360 then
-            angle = angle - 360
-        end
-    end
-end
-
-local Polar = createPolar(20, 1)
-
-while true do
-    if get_axis("LT") >= g_res[90] and get_axis("RT") >= g_res[90] then
-        Polar()  
-    end
-end
-```
-This loop doesnt use the [sleep function](#sleep) to avoid any desyncs with the remap and set values, and because of that it can cause high cpu usage. Granted you can use a very small 'sleep' value, but it may cause stutters.
-
 Be careful when using loops.
 
 
