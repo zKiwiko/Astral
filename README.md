@@ -69,6 +69,16 @@ If the 'int' is set to 100, itll set the axis to 32767. and vice versa with -100
 # Global Functions
 Functions usable within your lua script.
 
+## init
+the `init` function is extremely important. Without it, you cannot create the Virtual Controller needed for scripting. Dont Forget it.
+Its not a required function as [package files](#Packages) wouldnt be able to run without having an `init`, creating more than one Virutal Controller.
+
+```lua
+init(num)
+```
+The num parameter can hold a 0 or 1. 0 to create an Xbox 360 (xinput) controller. and 1 to create a Dualshock (directinput) controller.
+This way, Astral can be used with Remote Play for both Xbox Series X|S, Xbox One, PlayStation 4, and PlayStation 5 consoles.
+
 ## get_axis
 returns the current value of an axis within the parameter.
 
