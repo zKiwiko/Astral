@@ -12,6 +12,11 @@ header {
     background: #333; /* Darker header */
 }
 
+.main-desc {
+    text-align: center;
+    background: #333; /* Darker description background */
+}
+
 nav {
     text-align: center;
     margin: 20px 0;
