@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Documentation</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
+        header {
+            padding: 20px;
+            text-align: center;
+            background: #333;
+        }
+
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav button {
+            background: #555;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        nav button:hover {
+            background: #777;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #444;
+            background: #2a2a2a;
+            margin: 0 20px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Project Title</h1>
+        <p>A brief description of what the project does.</p>
+    </header>
+    
+    <nav>
+        <button onclick="showTab('overview')">Overview</button>
+        <button onclick="showTab('installation')">Installation</button>
+        <button onclick="showTab('usage')">Usage</button>
+        <button onclick="showTab('contributing')">Contributing</button>
+    </nav>
+
+    <main>
+        <div id="overview" class="tab-content active">
+            <h2>Overview</h2>
+            <p>Provide a detailed overview of the project, its purpose, and its features.</p>
+        </div>
+
+        <div id="installation" class="tab-content">
+            <h2>Installation</h2>
+            <p>Instructions for installing the project, including prerequisites and dependencies.</p>
+            <pre><code>npm install project-name</code></pre>
+        </div>
+
+        <div id="usage" class="tab-content">
+            <h2>Usage</h2>
+            <p>Instructions on how to use the project, with examples.</p>
+            <pre><code>node index.js</code></pre>
+        </div>
+
+        <div id="contributing" class="tab-content">
+            <h2>Contributing</h2>
+            <p>Guidelines for contributing to the project, including coding standards and how to submit issues or pull requests.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Name</p>
+        <p>Check out the project on <a href="https://github.com/zkiwiko/Astral" style="color: #fff;">GitHub</a>.</p>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab content
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show the selected tab content
+            const activeTab = document.getElementById(tabName);
+            activeTab.classList.add('active');
+        }
+    </script>
+</body>
+</html>
