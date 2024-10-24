@@ -12,14 +12,6 @@ header {
     background: #333; /* Darker header */
 }
 
-#toggleTab {
-    background: #555; /* Button background color */
-    border: none;
-    color: #fff; /* Button text color */
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
 .side-nav {
     position: fixed;
     left: -200px; /* Start hidden off-screen */
@@ -35,6 +27,17 @@ header {
 
 .side-nav.active {
     left: 0; /* Slide in when active */
+}
+
+#toggleTab {
+    background: #555; /* Button background color */
+    border: none;
+    color: #fff; /* Button text color */
+    padding: 10px;
+    cursor: pointer;
+    margin: 0 0 20px 0; /* Margin to separate from other buttons */
+    font-size: 20px; /* Size of the toggle button text */
+    width: 100%;
 }
 
 .side-nav button {
