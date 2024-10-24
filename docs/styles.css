@@ -12,50 +12,22 @@ header {
     background: #333; /* Darker header */
 }
 
-.side-nav {
-    position: fixed;
-    left: -200px; /* Start hidden off-screen */
-    top: 0;
-    height: 100%;
-    width: 200px;
-    background: #333; /* Side navigation background */
-    transition: left 0.3s; /* Smooth transition */
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-    z-index: 1000; /* Ensure it appears above other content */
+nav {
+    text-align: center;
+    margin: 20px 0;
 }
 
-.side-nav.active {
-    left: 0; /* Slide in when active */
-}
-
-#toggleTab {
+nav button {
     background: #555; /* Button background color */
     border: none;
     color: #fff; /* Button text color */
-    padding: 10px;
+    padding: 10px 20px;
     cursor: pointer;
-    margin: 0 0 20px 0; /* Margin to separate from other buttons */
-    font-size: 20px; /* Size of the toggle button text */
-    width: 100%;
+    margin: 0 5px;
 }
 
-.side-nav button {
-    background: #555; /* Button background color */
-    border: none;
-    color: #fff; /* Button text color */
-    padding: 10px;
-    cursor: pointer;
-    margin: 10px 0;
-    width: 100%;
-}
-
-.side-nav button:hover {
+nav button:hover {
     background: #777; /* Button hover color */
-}
-
-main {
-    margin-left: 20px; /* Space for the side navigation */
 }
 
 .tab-content {
@@ -63,7 +35,7 @@ main {
     padding: 20px;
     border: 1px solid #444; /* Border color for tab content */
     background: #2a2a2a; /* Tab content background */
-    margin: 20px;
+    margin: 0 20px;
 }
 
 .active {

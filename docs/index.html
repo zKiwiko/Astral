@@ -12,13 +12,11 @@
         <p>A brief description of what the project does.</p>
     </header>
     
-    <nav id="sideNav" class="side-nav">
-        <button id="toggleTab" onclick="toggleTabs()">|||</button>
+    <nav>
         <button onclick="showTab('overview')">Overview</button>
         <button onclick="showTab('installation')">Installation</button>
         <button onclick="showTab('usage')">Usage</button>
         <button onclick="showTab('contributing')">Contributing</button>
-        <button onclick="toggleTabs()">Close</button>
     </nav>
 
     <main>
@@ -47,15 +45,10 @@
 
     <footer>
         <p>&copy; 2024 Your Name</p>
-        <p>Check out the project on <a href="https://github.com/yourusername/yourproject">GitHub</a>.</p>
+        <p>Check out the project on <a href="https://github.com/zkiwiko/Astral">GitHub</a>.</p>
     </footer>
 
     <script>
-        function toggleTabs() {
-            const sideNav = document.getElementById('sideNav');
-            sideNav.classList.toggle('active');
-        }
-
         function showTab(tabName) {
             // Hide all tab content
             const tabs = document.querySelectorAll('.tab-content');
