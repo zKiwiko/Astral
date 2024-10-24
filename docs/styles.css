@@ -47,3 +47,42 @@ footer {
     padding: 10px;
     background: #333; /* Footer background */
 }
+
+.github-logo {
+    display: inline-block;
+    width: 20px; /* Set the width of the logo */
+    height: 20px; /* Set the height of the logo */
+    background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');
+    background-size: contain; /* Make the logo fit the container */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    vertical-align: middle; /* Align with text */
+    margin-left: 5px; /* Space between text and logo */
+}
+
+.social-logo {
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    vertical-align: middle; /* Align with text */
+    margin-left: 5px; /* Space between text and logo */
+  }
+  
+  .social-icon {
+    font-size: 20px; /* Set the icon size */
+    color: #fff; /* Set the icon color */
+  }
+
+.discord-button {
+    background-color: #7289da; /* Discord blue */
+    color: white; /* Button text color */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    margin-left: 10px; /* Space between logo and button */
+    transition: background-color 0.3s;
+}
+
+.discord-button:hover {
+    background-color: #5b6eae; /* Darker blue on hover */
+}
+

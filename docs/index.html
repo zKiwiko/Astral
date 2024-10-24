@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Documentation</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>Project Title</h1>
-        <p>A brief description of what the project does.</p>
+        <h1>Astral</h1>
+        <p>Controller Scripting Intergrated into Lua.</p>
     </header>
     
     <nav>
@@ -44,19 +45,24 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Your Name</p>
-        <p>Check out the project on <a href="https://github.com/zkiwiko/Astral">GitHub</a>.</p>
-    </footer>
+        <p>&copy; 2024 kiwiko</p>
+        <p> 
+          <a href="https://github.com/yourusername/yourproject" style="color: #fff; text-decoration: none;">
+            <span class="social-icon fab fa-github"></span>  
+          </a>
+          <a href="https://discord.gg/yourdiscordinvite" style="text-decoration: none;">
+            <span class="social-icon fab fa-discord"></span>  
+          </a>
+        </p>
+      </footer>
 
     <script>
         function showTab(tabName) {
-            // Hide all tab content
             const tabs = document.querySelectorAll('.tab-content');
             tabs.forEach(tab => {
                 tab.classList.remove('active');
             });
 
-            // Show the selected tab content
             const activeTab = document.getElementById(tabName);
             activeTab.classList.add('active');
         }
