@@ -41,30 +41,75 @@ function Main() -- case sensitive. Has to be Main not main
 end
 ```
 
-# Packages
+# Packages and Modules
 Astral uses a `.ldll` (Lua Dynamic Linking Library) and `.clua` (compiled Lua) as package file types. They are both compiled by Astral; the only difference is the code inside them.
 `.ldll` files contain C++ code using the Lua Library and can be called at any point during run time, Similar to calling a `.dll` file in Python or Lua. `.ldll` files can contain 
 new globals Astral doesnt already contain. `.clua` contains compiled Lua code which can contain generic Lua code along with globals declared by Astral.
 
-Default Lua packages are natively supported aswell, such as math, io, coroutine, debug, base64, package, string and table.
+Astral has many built in Modules usable within your Lua Script using the "require()" function. Default Lua Modules like math, io, coroutine, dbug, base64, package, string, and table modules
+are all supported natively.
+The Build in Modules Astral adds can be seen down below.
 
-# Global Variables
-
-Global Variables to use inside your Lua scripts.
-
-## gres
-Contains [controller stick resolutions](https://github.com/zKiwiko/Stick-Resolutions) from ranges -32768 to 32767.
-These values are in an array and can be grabbed via: ```gres[]``` the number in the [ ] can only be an integer from -100 to 100.
-
-gres is best used with [set_axis](#set_axis) to more conviently set axis values and to pull data of the axis.
-
+## cmath
+The cmath module holds math functions that are calculated in C++ opposed from lua. Aswell as some for quality of life.
+The code below shows how to import it into your project. Please note that it is case sensitive and can only be imported as seen here.
+It is not required to assign it to a variable but it is recommended for simplicity.
 ```lua
-set_axis(Axis, gres[int]. -- Will set the axis to the integers stick resolution value.
-
-if get_axis(Axis) > gres[int] .. -- Will return true when the axis is pushed passed the gres value.
+m = require("cmath")
 ```
+The cmath module currently holds 2 functions: `convert` and `clamp`.
+Convert is a quality of life function, and converts any integer or decimal number into the Stick Resolution equivelent.
+```
+m = require("cmath")
 
-If the 'int' is set to 100, itll set the axis to 32767. and vice versa with -100.
+function Main()
+print(m.convert(100)) -- will Print 32767
+print(m.clamp(11, 0, 10)) -- will print 10.
+end
+```
+`clamp` has 3 parameters. `number to clamp`, `min value`, `max value`. It will clamp the `number to clamp` between the min and max range.
+`convert` has 1 parameter and can hold any number type except hexdecimal numbers like 0x01.
+
+## globals
+The `globals` module contains global variables useable within your code, and are quality of life in most cases.
+It can be imported into your code with the `require()` function native to lua as seen below.
+it is not necassary to assign it to a variable, but it is highly recommended for simplicity.
+```lua
+g = require("globals")
+```
+the `globals` module holds 3 values/variables.
+```lua
+g = require("globals")
+function Main()
+print(g.default) -- will print 0
+print(g.set) -- will print 32767
+print(g.unset) -- will print 0
+print(g.res[100]) -- will print 32767
+end
+```
+`g.res[]` holds stick resolution numbers that equate to the whole number put into it. Which can mostly be used when working with
+[get_axis](#get_axis) and [set_axis](#set_axis).
+
+Its here as an alternative to the `convert` function in the cmath module.
+
+## https
+The `https` module contains multiple functions used for Https requests. Such as GET, POST, PUT, and DELETE.
+It can be imported into your code with the `require()` function native to lua as seen below.
+It is not necassary to assign a variable to it, but it is highly recommended for simplicity.
+```lua
+h = require("https")
+```
+The `https` module holds 4 functions.
+```
+h = require("https")
+function Main()
+print(h.get(url)) -- will print the data the function receives from the API you put in the url param.
+print(h.post(url, data)) -- will print the `data` you post to a API through the url param. (json data)
+print(h.put(url, data)) -- will print the `data` you put to a API through the url param. (json data)
+print(h.delele(url, data)) -- will print the `data` you delete form API though the url param. (json data)
+end
+```
+The post, put, and delete functions only send/del data in a JSon format. Mostly for security.
 
 # Global Functions
 Functions usable within your lua script.
@@ -78,6 +123,17 @@ init(num)
 ```
 The num parameter can hold a 0 or 1. 0 to create an Xbox 360 (xinput) controller. and 1 to create a Dualshock (directinput) controller.
 This way, Astral can be used with Remote Play for both Xbox Series X|S, Xbox One, PlayStation 4, and PlayStation 5 consoles.
+
+## loopbreak
+`loopbreak` will allow you to break out early from the Main loop. Stopping the scripts execution.
+```lua
+function Main()
+print("Hello World")
+loopbreak()
+end
+```
+The example code will print out 'Hello World' once, then stop the main loop.
+If `loopbreak` wasnt there, it would print 'Hello World' as long as it is running or until the user stops the script.
 
 ## get_axis
 returns the current value of an axis within the parameter.
