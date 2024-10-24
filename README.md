@@ -514,20 +514,6 @@ sleep(num)
 ```
 The num parameter can only hold an integer; whole number.
 
-## clamp
-Clamps a number between a min number and a max number.
-```lua
-clamp(num, min, max)
-```
-each parameter can only hold and integer; whole number.
-
-An example is as follows:
-```lua
-Var = 11
-print(clamp(Var, 0, 10)
-```
-Since the "Var" variable is over the max number; 10, it will clamp it to the max and print "10".
-
 ## loopctrl
 Change the current speed at which controller updates are handled.
 Default value is 16. One update every 60 frames.
