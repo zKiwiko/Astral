@@ -20,7 +20,7 @@ nav {
 nav button {
     background: #555;
     border: 8px solid #333;
-    border-radius: 8px;
+    border-radius: 2px;
     color: #fff;
     padding: 10px 20px;
     cursor: pointer;
