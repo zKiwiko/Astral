@@ -59,7 +59,7 @@ m = require("cmath")
 ```
 The cmath module currently holds 2 functions: `convert` and `clamp`.
 Convert is a quality of life function, and converts any integer or decimal number into the Stick Resolution equivelent.
-```
+```lua
 m = require("cmath")
 
 function Main()
@@ -100,7 +100,7 @@ It is not necassary to assign a variable to it, but it is highly recommended for
 h = require("https")
 ```
 The `https` module holds 4 functions.
-```
+```lua
 h = require("https")
 function Main()
 print(h.get(url)) -- will print the data the function receives from the API you put in the url param.
