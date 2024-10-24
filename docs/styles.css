@@ -12,39 +12,63 @@ header {
     background: #333; /* Darker header */
 }
 
-nav {
-    text-align: center;
-    margin: 20px 0;
-}
-
-nav button {
-    background: #555;
-    border: 8px solid #333;
-    border-radius: 2px;
-    color: #fff;
+#toggleTab {
+    background: #555; /* Button background color */
+    border: none;
+    color: #fff; /* Button text color */
     padding: 10px 20px;
     cursor: pointer;
-    margin: 0 5px;
 }
 
-nav button:hover {
-    background: #777;
+.side-nav {
+    position: fixed;
+    left: -200px; /* Start hidden off-screen */
+    top: 0;
+    height: 100%;
+    width: 200px;
+    background: #333; /* Side navigation background */
+    transition: left 0.3s; /* Smooth transition */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.side-nav.active {
+    left: 0; /* Slide in when active */
+}
+
+.side-nav button {
+    background: #555; /* Button background color */
+    border: none;
+    color: #fff; /* Button text color */
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.side-nav button:hover {
+    background: #777; /* Button hover color */
+}
+
+main {
+    margin-left: 20px; /* Space for the side navigation */
 }
 
 .tab-content {
-    display: none;
+    display: none; /* Initially hide all tab content */
     padding: 20px;
-    border: 1px solid #444;
-    background: #2a2a2a;
-    margin: 0 20px;
+    border: 1px solid #444; /* Border color for tab content */
+    background: #2a2a2a; /* Tab content background */
+    margin: 20px;
 }
 
 .active {
-    display: block;
+    display: block; /* Show active tab content */
 }
 
 footer {
     text-align: center;
     padding: 10px;
-    background: #333;
+    background: #333; /* Footer background */
 }

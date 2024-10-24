@@ -10,13 +10,15 @@
     <header>
         <h1>Project Title</h1>
         <p>A brief description of what the project does.</p>
+        <button id="toggleTab" onclick="toggleTabs()">Toggle Tabs</button>
     </header>
     
-    <nav>
+    <nav id="sideNav" class="side-nav">
         <button onclick="showTab('overview')">Overview</button>
         <button onclick="showTab('installation')">Installation</button>
         <button onclick="showTab('usage')">Usage</button>
         <button onclick="showTab('contributing')">Contributing</button>
+        <button onclick="toggleTabs()">Close</button>
     </nav>
 
     <main>
@@ -49,6 +51,11 @@
     </footer>
 
     <script>
+        function toggleTabs() {
+            const sideNav = document.getElementById('sideNav');
+            sideNav.classList.toggle('active');
+        }
+
         function showTab(tabName) {
             // Hide all tab content
             const tabs = document.querySelectorAll('.tab-content');
