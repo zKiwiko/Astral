@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Documentation</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -14,36 +14,63 @@
             <span class="fa-solid fa-code"></span>
         </h1> 
         <p>
-            Controller Scripting Intergrated into Lua.
+            Controller Scripting Integrated into Lua.
         </p>
     </header>
     
     <nav>
-        <button onclick="showTab('overview')">Overview</button>
-        <button onclick="showTab('installation')">Installation</button>
-        <button onclick="showTab('usage')">Usage</button>
-        <button onclick="showTab('contributing')">Contributing</button>
-        <button onclick="showTab('pricing')">Pricing</button>
+        <button class="tab-button active" data-tab="overview">Overview</button>
+        <button class="tab-button" data-tab="installation">Installation</button>
+        <button class="tab-button" data-tab="usage">Usage</button>
+        <button class="tab-button" data-tab="contributing">Contributing</button>
+        <button class="tab-button" data-tab="pricing">Pricing</button>
     </nav>
 
     <main>
+        <!-- Main tab: Overview -->
         <div id="overview" class="tab-content active">
             <h2>Overview</h2>
             <p>Provide a detailed overview of the project, its purpose, and its features.</p>
+
+            <!-- Sub-tabs navigation -->
+            <nav class="sub-nav">
+                <button class="sub-tab-button active" data-tab="features">Features</button>
+                <button class="sub-tab-button" data-tab="architecture">Architecture</button>
+                <button class="sub-tab-button" data-tab="performance">Performance</button>
+            </nav>
+
+            <!-- Sub-tab content -->
+            <div id="features" class="sub-tab-content active">
+                <h3>Features</h3>
+                <p>Describe the features of the project in detail.</p>
+            </div>
+
+            <div id="architecture" class="sub-tab-content">
+                <h3>Architecture</h3>
+                <p>Provide a detailed description of the project's architecture.</p>
+            </div>
+
+            <div id="performance" class="sub-tab-content">
+                <h3>Performance</h3>
+                <p>Highlight performance-related information and benchmarks.</p>
+            </div>
         </div>
 
+        <!-- Main tab: Installation -->
         <div id="installation" class="tab-content">
             <h2>Installation</h2>
             <p>Instructions for installing the project, including prerequisites and dependencies.</p>
             <pre><code>npm install project-name</code></pre>
         </div>
 
+        <!-- Main tab: Usage -->
         <div id="usage" class="tab-content">
             <h2>Usage</h2>
             <p>Instructions on how to use the project, with examples.</p>
             <pre><code>node index.js</code></pre>
         </div>
 
+        <!-- Main tab: Contributing -->
         <div id="contributing" class="tab-content">
             <h2>Contributing</h2>
             <p>Guidelines for contributing to the project, including coding standards and how to submit issues or pull requests.</p>
@@ -53,25 +80,41 @@
     <footer>
         <p>&copy; 2024 kiwiko</p>
         <p> 
-          <a href="https://github.com/yourusername/yourproject" style="color: #fff; text-decoration: none;">
+          <a href="https://github.com/yourusername/yourproject">
             <span class="social-icon fab fa-github"></span>  
           </a>
-          <a href="https://discord.gg/yourdiscordinvite" style="text-decoration: none;">
+          <a href="https://discord.gg/yourdiscordinvite">
             <span class="social-icon fab fa-discord"></span>  
           </a>
         </p>
-      </footer>
+    </footer>
 
     <script>
-        function showTab(tabName) {
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
+        // Handle main tab navigation
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all tab buttons and content
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(button.dataset.tab).classList.add('active');
             });
+        });
 
-            const activeTab = document.getElementById(tabName);
-            activeTab.classList.add('active');
-        }
+        // Handle sub-tab navigation
+        document.querySelectorAll('.sub-tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all sub-tab buttons and content
+                document.querySelectorAll('.sub-tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.sub-tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(button.dataset.tab).classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>

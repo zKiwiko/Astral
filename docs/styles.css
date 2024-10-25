@@ -1,93 +1,171 @@
 body {
-    background-color: #1e1e1e; /* Dark background */
-    color: #ffffff; /* White text */
+    background-color: #1e1e1e;
+    color: #ffffff;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 header {
     padding: 20px;
     text-align: center;
-    background: #333; /* Darker header */
+    background: #333;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
 }
 
 .main-desc {
     text-align: center;
-    background: #333; /* Darker description background */
+    background: #333;
 }
 
 nav {
     text-align: center;
     margin: 20px 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-nav button {
-    background: #555; /* Button background color */
-    border: none;
-    color: #fff; /* Button text color */
+.tab-button {
+    background: #555;
+    border: 8px solid #333;
+    border-radius: 20%;
+    color: #fff;
     padding: 10px 20px;
     cursor: pointer;
-    margin: 0 5px;
+    transition: background 0.3s ease;
 }
 
-nav button:hover {
-    background: #777; /* Button hover color */
+.tab-button:hover {
+    background: #777;
+}
+
+.tab-button.active {
+    background: #777;
+    border-color: #444;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .tab-content {
-    display: none; /* Initially hide all tab content */
+    display: none;
     padding: 20px;
-    border: 1px solid #444; /* Border color for tab content */
-    background: #2a2a2a; /* Tab content background */
+    border: 1px solid #444;
+    background: #2a2a2a;
     margin: 0 20px;
+    border-radius: 8px;
 }
 
-.active {
-    display: block; /* Show active tab content */
+.tab-content.active {
+    display: block;
+}
+
+.sub-nav {
+    margin: 20px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.sub-tab-button {
+    background: #555;
+    border: 8px solid #333;
+    border-radius: 20%;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.sub-tab-button:hover {
+    background: #777;
+}
+
+.sub-tab-button.active {
+    background: #777;
+    border-color: #444;
+}
+
+.sub-tab-content {
+    display: none;
+    padding: 20px 0;
+}
+
+.sub-tab-content.active {
+    display: block;
+}
+
+pre {
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 15px 0;
+}
+
+code {
+    font-family: 'Monaco', 'Consolas', monospace;
+    color: #fff;
 }
 
 footer {
     text-align: center;
+    margin-top: 40px;
     padding: 20px;
-    background: #333; /* Footer background */
+    background: #333;
 }
 
-.github-logo {
-    display: inline-block;
-    width: 20px; /* Set the width of the logo */
-    height: 20px; /* Set the height of the logo */
-    background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');
-    background-size: contain; /* Make the logo fit the container */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    vertical-align: middle; /* Align with text */
-    margin-left: 5px; /* Space between text and logo */
+.social-icon {
+    font-size: 20px;
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s;
 }
 
-.social-logo {
-    width: 20px; /* Adjust size as needed */
-    height: 20px; /* Adjust size as needed */
-    vertical-align: middle; /* Align with text */
-    margin-left: 5px; /* Space between text and logo */
-  }
-  
-  .social-icon {
-    font-size: 20px; /* Set the icon size */
-    color: #fff; /* Set the icon color */
-  }
+.social-icon:hover {
+    color: #777;
+}
 
 .discord-button {
-    background-color: #7289da; /* Discord blue */
-    color: white; /* Button text color */
+    background-color: #7289da;
+    color: white;
     border: none;
     padding: 5px 10px;
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 5px;
     cursor: pointer;
-    margin-left: 10px; /* Space between logo and button */
+    margin-left: 10px;
     transition: background-color 0.3s;
 }
 
 .discord-button:hover {
-    background-color: #5b6eae; /* Darker blue on hover */
+    background-color: #5b6eae;
 }
 
+@media (max-width: 768px) {
+    nav {
+        gap: 10px;
+    }
+
+    .tab-button, .sub-tab-button {
+        padding: 8px 16px;
+        border-width: 4px;
+    }
+
+    .tab-content {
+        margin: 0;
+        padding: 15px;
+    }
+}
