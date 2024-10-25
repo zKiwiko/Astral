@@ -73,11 +73,12 @@ main {
 
 .sub-nav {
     margin: 20px 0;
+    text-align: center;
     padding: 10px 0;
     border-bottom: 1px solid #444;
     display: flex;
     gap: 20px;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .sub-tab-button {
