@@ -1,9 +1,9 @@
 body {
     background-color: #1e1e1e;
     color: #ffffff;
-    font-family: Arial, sans-serif;
+    font-family: 'JetBrains Mono light';
     margin: 0;
-    padding: 0;
+    padding: 10px;
     min-height: 100vh;
 }
 
@@ -11,6 +11,8 @@ header {
     padding: 20px;
     text-align: center;
     background: #333;
+    border: 8px, solid, #555;
+    border-radius: 10px;
 }
 
 header h1 {
@@ -36,7 +38,7 @@ nav {
 .tab-button {
     background: #555;
     border: 8px solid #333;
-    border-radius: 10%;
+    border-radius: 10px;
     color: #fff;
     padding: 10px 20px;
     cursor: pointer;
@@ -132,7 +134,7 @@ footer {
 .social-icon {
     font-size: 20px;
     color: #fff;
-    margin: 0 10px;
+    margin: 0px;
     transition: color 0.3s;
 }
 
@@ -144,7 +146,7 @@ footer {
     background-color: #7289da;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 5px;
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;

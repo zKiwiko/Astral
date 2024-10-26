@@ -6,7 +6,7 @@
     <title>Project Documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
+    <!-- <script src="scripts.js"></script> -->
 </head>
 <body>
     <header>
@@ -55,7 +55,7 @@
         <div id="installation" class="tab-content">
             <h2>Installation</h2>
             <p>Instructions for installing the project, including prerequisites and dependencies.</p>
-            <pre><code>npm install project-name</code></pre>
+            <pre><code>npm install</code></pre>
         </div>
 
         <!-- Main tab: Usage -->
@@ -82,27 +82,7 @@
           </a>
         </p>
     </footer>
-
-    <script>
-        document.querySelectorAll('.tab-button').forEach(button => {
-            button.addEventListener('click', () => {
-                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                
-                button.classList.add('active');
-                document.getElementById(button.dataset.tab).classList.add('active');
-            });
-        });
-
-        document.querySelectorAll('.sub-tab-button').forEach(button => {
-            button.addEventListener('click', () => {
-                document.querySelectorAll('.sub-tab-button').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.sub-tab-content').forEach(content => content.classList.remove('active'));
-                
-                button.classList.add('active');
-                document.getElementById(button.dataset.tab).classList.add('active');
-            });
-        });
-    </script>
+    
+    <script src="scripts.js"></script>
 </body>
 </html>
