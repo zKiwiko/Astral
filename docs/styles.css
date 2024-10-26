@@ -86,7 +86,7 @@ main {
 .sub-tab-button {
     background: #555;
     border: 8px solid #333;
-    border-radius: 20%;
+    border-radius: 10px;
     color: #fff;
     padding: 10px 20px;
     cursor: pointer;
