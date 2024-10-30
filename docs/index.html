@@ -7,9 +7,11 @@
     <icon href="fab fa-github"></icon>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"> <!-- Dark theme -->
+    <link href="themes/prism.css" rel="stylesheet" />
 </head>
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
     <header>
         <h1>
             Astral
@@ -44,10 +46,14 @@
             <div id="Functions" class="sub-tab-content active">
                 <h3>Functions</h3>
                 <hr class="dim-seperator">
-                <h4>init</h4>
-                <p>Initializes the ViGEm Bus Driver and create a virtual controller.</p>
+                <h4>Main</h4>
+                <p>the `Main` function is required for your Lua Script to run. It allows declared variables outside of `Main` to not be reset by the Lua loop Astral uses.</p>
                 <h5>Syntax</h5>
-                <pre><code class="language-lua">init(int)</code></pre>
+                <pre>
+                    <code class="language-lua">
+function Main()
+-- code head
+end</code></pre>
             </div>
 
             <div id="Modules" class="sub-tab-content">
@@ -97,8 +103,7 @@
     </footer>
     
     <script src="scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="prism.js"></script>
 
 </body>
 </html>

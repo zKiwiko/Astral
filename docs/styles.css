@@ -179,3 +179,23 @@ footer {
     border-top: 1px solid rgba(100, 100, 100, 0.5); /* Light gray line with subtle opacity */
     margin: 15px 0; /* Spacing around the line */
 }
+
+/* custom-prism.css */
+
+.token.comment {
+    color: #6a9955; /* Green for comments */
+    font-style: italic; /* Italicize comments */
+}
+
+.token.keyword {
+    color: #ff79c6; /* Pink for keywords */
+    font-weight: bold; /* Bold keywords */
+}
+
+.token.string {
+    color: #f1fa8c; /* Yellow for strings */
+}
+
+.token.function {
+    color: #50fa7b; /* Green for functions */
+}
