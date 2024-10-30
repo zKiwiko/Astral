@@ -26,7 +26,6 @@
     <nav>
       <button class="tab-button active" data-tab="overview">Overview</button>
       <button class="tab-button" data-tab="installation">Installation</button>
-      <button class="tab-button" data-tab="usage">Usage</button>
       <button class="tab-button" data-tab="contributing">Contributing</button>
       <button class="tab-button" data-tab="pricing">Pricing</button>
     </nav>
@@ -243,6 +242,23 @@ init(1) -- will create a virtual DualShock 4 Controller</code></pre>
             <p>This function sets the default value back to 0.</p>
             <pre><code class="language-lua">g.res[int]</code></pre>
             <p>This variable holds stick resolution numbers that equate to the integer inside its parameter as long as its between -100 and 100. Stick resolutions can be viewed <a href="https://github.com/zKiwiko/Stick-Resolutions">Here</a>. Negative values also work. so -100 will output -32767.</p>
+            <hr class="dim-seperator"/>
+
+
+            <h4>https</h4>
+            <p>The https module allows you to make HTTPS requests using Lua. It's useful for making web requests and interacting with APIs.</p>
+            <h5>Importing</h5>
+            <pre><code class="language-lua">h = require("https")</code></pre>
+            <h5>Functions</h5>
+            <pre><code class="language-lua">h.get(string: URL, string: Data (json format))</code></pre>
+            <p>The `get` function sends a GET request to the provided URL and returns the response body as a string. If the request is successful, it will return the body. If there's an error, it will return an error message.</p>
+            <pre><code class="language-lua">h.post(string: URL, string: Data (json format))</code></pre>
+            <p>The `post` function sends a POST request to the provided URL.</p>
+            <pre><code class="language-lua">h.put(string: URL, string: Data (json format))</code></pre>
+            <p>The `put` function sends a PUT request to the provided URL.</p>
+            <pre><code class="language-lua">h.delete(string: URL, string: Data)</code></pre>
+            <p>The `delete` function sends a DELETE request of the given Data, to the URL.</p>
+            <hr class="dim-seperator"/>
 
         </div>
 
@@ -333,13 +349,6 @@ init(1) -- will create a virtual DualShock 4 Controller</code></pre>
           and ask for help.
         </p>
         <h2></h2>
-      </div>
-
-      <!-- Main tab: Usage -->
-      <div id="usage" class="tab-content">
-        <h2>Usage</h2>
-        <p>Instructions on how to use the project, with examples.</p>
-        <pre><code>node index.js</code></pre>
       </div>
 
       <div id="contributing" class="tab-content">
