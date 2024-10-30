@@ -63,10 +63,9 @@
 
         <!-- Sub-tabs navigation -->
         <nav class="sub-nav">
-          <button class="sub-tab-button active" data-tab="Functions">
-            Functions
-          </button>
+          <button class="sub-tab-button active" data-tab="Functions">Functions</button>
           <button class="sub-tab-button" data-tab="Modules">Modules</button>
+          <button class="sub-tab-button" data-tab="ValidInputs">Valid Inputs</button>
         </nav>
 
         <!-- Sub-tab content -->
@@ -211,6 +210,8 @@ init(1) -- will create a virtual DualShock 4 Controller</code></pre>
             <hr class="dim-seperator"/>
 
 
+
+
         </div>
 
         <div id="Modules" class="sub-tab-content">
@@ -244,6 +245,46 @@ init(1) -- will create a virtual DualShock 4 Controller</code></pre>
             <p>This variable holds stick resolution numbers that equate to the integer inside its parameter as long as its between -100 and 100. Stick resolutions can be viewed <a href="https://github.com/zKiwiko/Stick-Resolutions">Here</a>. Negative values also work. so -100 will output -32767.</p>
 
         </div>
+
+        <div id="ValidInputs" class="sub-tab-content">
+            <h3>Buttons</h3>
+            <hr class="dim-seperator"/>
+
+            <p>
+                "A" -> A (Xbox), X (PS),        B (Switch) <br>
+                "B" -> B (Xbox), Circle (PS),   A (Switch) <br>
+                "X" -> X (Xbox), Square (PS),   Y (Switch) <br>
+                "Y" -> Y (Xbox), Triangle (PS), X (Switch) <br><br>
+
+                "UP" -> Up Dpad <br>
+                "DOWN" -> Down Dpad <br>
+                "LEFT" -> Left Dpad <br>
+                "RIGHT" -> Right Dpad <br><br>
+
+                "LB" -> LB (Xbox), L1 (PS), ZL (Switch) <br>
+                "RB" -> RB (Xbox), R1 (PS), ZR (Switch) <br><br>
+
+                "LS" -> LS (Xbox), L3 (PS), LS (Switch) <br>
+                "RS" -> RS (Xbox), R3 (PS), RS (Switch) <br><br>
+
+                "MENU" -> Menu (Xbox), Options (PS), Plus (Switch) <br>
+                "VIEW" -> View (Xbox), Share (PS), Minus (Switch) <br>
+                "GUIDE" -> Xbox Home Button, PS Dashboard Button, Switch Home Button. <br>
+
+            </p>
+            <h3>Axis</h3>
+            <hr class="dim-seperator"/>
+            <p>
+                "LX" -> Left Stick X Axis (Left and Right)<br>
+                "LY" -> Left Stick Y Axis (Up and Down)<br>
+                "RX" -> Right Stick X Axis (Left and Right)<br>
+                "RY" -> Right Stick Y Axis (Up and Down)<br><br>
+
+                "PL" -> Left Stick (for set_polar function)<br>
+                "PR" -> Right Stick (for set_polar function)<br>
+            </p>
+        </div>
+
       </div>
 
       <!-- Main tab: Installation -->
