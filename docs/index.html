@@ -46,14 +46,26 @@
             <div id="Functions" class="sub-tab-content active">
                 <h3>Functions</h3>
                 <hr class="dim-seperator">
-                <h4>Main</h4>
-                <p>the `Main` function is required for your Lua Script to run. It allows declared variables outside of `Main` to not be reset by the Lua loop Astral uses.</p>
-                <h5>Syntax</h5>
-                <pre>
-                    <code class="language-lua">
-function Main()
--- code head
+                    <h4>Main</h4>
+                    <p>the `Main` function is required for your Lua Script to run. It allows declared variables outside of `Main` to not be reset by the Lua loop Astral uses.<br>All main logic should be in your main function in the Main file. You dont need a `Main` in files that arent the main file youre running.</p>
+                    <h5>Syntax</h5>
+                    <pre><code class="language-lua">function Main()
+    -- code here
 end</code></pre>
+                    <h5>Parameters</h5>
+                    <p>The `Main` function doesnt need to hold any parameters as it doesnt need to be called, Astral will run it automatically.</p>
+
+                <hr class="dim-seperator">
+                    <h4>init</h4>
+                    <p>The `init` function is required to have to create the virtual controller.</p>
+                    <h5>Syntax</h5>
+<pre><code class="language-lua">init(int)</code></pre>
+                    <h5>Parameters</h5>
+                    <p>`init` holds 1 parameter, that being an integer of 0 or 1.</p>
+                    <pre><code class="language-lua">init(0) -- will create a virtual X360 Controller
+init(1) -- will create a virtual DualShock 4 Controller</code></pre>
+                    
+
             </div>
 
             <div id="Modules" class="sub-tab-content">
@@ -93,7 +105,7 @@ end</code></pre>
     <footer>
         <p>&copy; 2024 kiwiko</p>
         <p> 
-          <a href="https://github.com/yourusername/yourproject">
+          <a href="https://github.com/zKiwiko/">
             <span class="social-icon fab fa-github"></span>  
           </a>
           <a href="https://discord.gg/yourdiscordinvite">
