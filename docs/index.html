@@ -1,121 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Astral</title>
     <icon href="fab fa-github"></icon>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <link href="themes/prism.css" rel="stylesheet" />
-</head>
-<body>
+  </head>
+  <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 
     <header>
-        <h1>
-            Astral
-            <span class="fa-solid fa-code"></span>
-        </h1> 
-        <p>
-            Controller Scripting Integrated into Lua.
-        </p>
+      <h1>
+        Astral
+        <span class="fa-solid fa-code"></span>
+      </h1>
+      <p>Controller Scripting Integrated into Lua.</p>
     </header>
-    
+
     <nav>
-        <button class="tab-button active" data-tab="overview">Overview</button>
-        <button class="tab-button" data-tab="installation">Installation</button>
-        <button class="tab-button" data-tab="usage">Usage</button>
-        <button class="tab-button" data-tab="contributing">Contributing</button>
-        <button class="tab-button" data-tab="pricing">Pricing</button>
+      <button class="tab-button active" data-tab="overview">Overview</button>
+      <button class="tab-button" data-tab="installation">Installation</button>
+      <button class="tab-button" data-tab="usage">Usage</button>
+      <button class="tab-button" data-tab="contributing">Contributing</button>
+      <button class="tab-button" data-tab="pricing">Pricing</button>
     </nav>
 
     <main>
-        <!-- Main tab: Overview -->
-        <div id="overview" class="tab-content active">
-            <h2>Overview</h2>
-            <p>Astral is a program that takes Controller Scripting ideas from other Scripting devices and intergrates the functionality into Lua lang using the ViGEm Bus Driver. The purpose of Astral is to make Video Game companies crack down on Scripting Hardware and software to bring a safer place for gamers on any game.<br><br>Astral uses a combination of Libraries and Drivers in order to have the best functionality possible.<br><br> <a href="https://github.com/nefarius/HidHide">HIDHide</a>: To remove duplicate inputs.<br><a href="https://github.com/nefarius/ViGEmClient">ViGEm Client</a>: For Controller emulation.<br><br>Astral adds multiple Built In functions and Modules you can use in your Lua Script. As well as having an option (for select developers) to compile their scripts for sharing with others, without needing to risk their Code being stolen, resold or reclaimed. Below are tabs you can open to read about the Built-In functions and Modules, Aswell as Script Examples for using the scripts functions.<br><br><p style="font-size: 10px; color: #444;">Astral is a Closed Source project that is not affiliated with Mircosoft or Sony. Any Registered Trademark mentions throught this site belong to their respective owner.</p></p>
+      <!-- Main tab: Overview -->
+      <div id="overview" class="tab-content active">
+        <h2>Overview</h2>
+        <p>
+          Astral is a program that takes Controller Scripting ideas from other
+          Scripting devices and intergrates the functionality into Lua lang
+          using the ViGEm Bus Driver. The purpose of Astral is to make Video
+          Game companies crack down on Scripting Hardware and software to bring
+          a safer place for gamers on any game.<br /><br />Astral uses a
+          combination of Libraries and Drivers in order to have the best
+          functionality possible.<br /><br />
+          <a href="https://github.com/nefarius/HidHide">HIDHide</a>: To remove
+          duplicate inputs.<br /><a
+            href="https://github.com/nefarius/ViGEmClient"
+            >ViGEm Client</a
+          >: For Controller emulation.<br /><br />Astral adds multiple Built In
+          functions and Modules you can use in your Lua Script. As well as
+          having an option (for select developers) to compile their scripts for
+          sharing with others, without needing to risk their Code being stolen,
+          resold or reclaimed. Below are tabs you can open to read about the
+          Built-In functions and Modules, Aswell as Script Examples for using
+          the scripts functions.<br /><br />
+          <p style="font-size: 10px; color: #444">
+            Astral is a Closed Source project that is not affiliated with
+            Mircosoft or Sony. Any Registered Trademark mentions throught this
+            site belong to their respective owner.
+          </p>
+        </p>
 
-            <!-- Sub-tabs navigation -->
-            <nav class="sub-nav">
-                <button class="sub-tab-button active" data-tab="Functions">Functions</button>
-                <button class="sub-tab-button" data-tab="Modules">Modules</button>
-            </nav>
+        <!-- Sub-tabs navigation -->
+        <nav class="sub-nav">
+          <button class="sub-tab-button active" data-tab="Functions">
+            Functions
+          </button>
+          <button class="sub-tab-button" data-tab="Modules">Modules</button>
+        </nav>
 
-            <!-- Sub-tab content -->
-            <div id="Functions" class="sub-tab-content active">
-                <h3>Functions</h3>
-                <hr class="dim-seperator">
-                    <h4>Main</h4>
-                    <p>the `Main` function is required for your Lua Script to run. It allows declared variables outside of `Main` to not be reset by the Lua loop Astral uses.<br>All main logic should be in your main function in the Main file. You dont need a `Main` in files that arent the main file youre running.</p>
-                    <h5>Syntax</h5>
-                    <pre><code class="language-lua">function Main()
+        <!-- Sub-tab content -->
+        <div id="Functions" class="sub-tab-content active">
+          <h3>Functions</h3>
+          <hr class="dim-seperator" />
+          <h4>Main</h4>
+          <p>
+            the `Main` function is required for your Lua Script to run. It
+            allows declared variables outside of `Main` to not be reset by the
+            Lua loop Astral uses.<br />All main logic should be in your main
+            function in the Main file. You dont need a `Main` in files that
+            arent the main file youre running.
+          </p>
+          <h5>Syntax</h5>
+          <pre><code class="language-lua">function Main()
     -- code here
 end</code></pre>
-                    <h5>Parameters</h5>
-                    <p>The `Main` function doesnt need to hold any parameters as it doesnt need to be called, Astral will run it automatically.</p>
+          <h5>Parameters</h5>
+          <p>
+            The `Main` function doesnt need to hold any parameters as it doesnt
+            need to be called, Astral will run it automatically.
+          </p>
 
-                <hr class="dim-seperator">
-                    <h4>init</h4>
-                    <p>The `init` function is required to have to create the virtual controller.</p>
-                    <h5>Syntax</h5>
-<pre><code class="language-lua">init(int)</code></pre>
-                    <h5>Parameters</h5>
-                    <p>`init` holds 1 parameter, that being an integer of 0 or 1.</p>
-                    <pre><code class="language-lua">init(0) -- will create a virtual X360 Controller
+          <hr class="dim-seperator" />
+          <h4>init</h4>
+          <p>
+            The `init` function is required to have to create the virtual
+            controller.
+          </p>
+          <h5>Syntax</h5>
+          <pre><code class="language-lua">init(int)</code></pre>
+          <h5>Parameters</h5>
+          <p>`init` holds 1 parameter, that being an integer of 0 or 1.</p>
+          <pre><code class="language-lua">init(0) -- will create a virtual X360 Controller
 init(1) -- will create a virtual DualShock 4 Controller</code></pre>
-                    
-
-            </div>
-
-            <div id="Modules" class="sub-tab-content">
-                <h3>Modules</h3>
-                <p>Provide a detailed description of the project's architecture.</p>
-            </div>
         </div>
 
-        <!-- Main tab: Installation -->
-        <div id="installation" class="tab-content">
-            <h2>Prerequisites</h2>
-            <p>At this time, Astral doesnt support XInput based controllers. This includes but isnt limited to:<br>- Xbox 360 Controllers.<br>- Xbox One & One S Controllers.<br>- Xbox Series X|S Controllers.<br>- Xbox One elite series One & Two Controllers.<br>- GameSir G7 SE<br>- GameSir G7 HE<br>- PowerA Xbox Controllers<br>- Razer Wolverine v1, v2, & v3<br><br>Known supported Controllers:<br>- DualSense Controllers<br>- DualSense Edge Controllers<br>- DualShock 4 Controllers<br></p>
-            
-            <h2>Installation</h2>
-            <p>A Few things are needed for Astral to function properly.<br><br>Download and Install the <a href="https://github.com/nefarius/ViGEmBus">ViGEm Bus Driver</a>. This is necassary to be able to Create the Virtual Controller you PC will be taking inputs from to send to applications.<br><br>Next youre required to download and install <a href="https://github.com/nefarius/HidHide">HIDHide</a> inorder to hide your Physical controller from your system so Double input doesnt happen, and force applications to use the Virtual Controller ViGEm sets up.<br><br>Lastly, youll have to install the correct <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170">VC Redist</a> version for your computer.<br><br>After installing the required software. Open the 'HIDHide Configuration Client'. In the 'Applications' tab, press the '+' at the bottom right, and go to where you have Astral installed. Click on the 'Astral.exe' file and click the 'Open' button in your file explorer. This will add Astral to the white list and allow it to be able to see your controller.<br><br>In the 'Devices' tab, click the check box next to the name of your controller. Afterwards, you should see a Red Lock appear next to it. At the bottom Left of this tab, click the Check Box next to 'Enable Device Hiding'. This will hide your controller from the rest of your computer.<br><br>Now download Astral from <a href="https://github.com/zKiwiko/Astral">the Github Repository</a>.<br><br>If you need installation support, please join my discord and ask for help.</p>
-            <h2></h2>
+        <div id="Modules" class="sub-tab-content">
+          <h3>Modules</h3>
+          <p>Provide a detailed description of the project's architecture.</p>
         </div>
+      </div>
 
-        <!-- Main tab: Usage -->
-        <div id="usage" class="tab-content">
-            <h2>Usage</h2>
-            <p>Instructions on how to use the project, with examples.</p>
-            <pre><code>node index.js</code></pre>
-        </div>
+      <!-- Main tab: Installation -->
+      <div id="installation" class="tab-content">
+        <h2>Prerequisites</h2>
+        <p>
+          At this time, Astral doesnt support XInput based controllers. This
+          includes but isnt limited to:<br />- Xbox 360 Controllers.<br />- Xbox
+          One & One S Controllers.<br />- Xbox Series X|S Controllers.<br />-
+          Xbox One elite series One & Two Controllers.<br />- GameSir G7 SE<br />-
+          GameSir G7 HE<br />- PowerA Xbox Controllers<br />- Razer Wolverine
+          v1, v2, & v3<br /><br />Known supported Controllers:<br />- DualSense
+          Controllers<br />- DualSense Edge Controllers<br />- DualShock 4
+          Controllers<br />
+        </p>
 
-        <div id="contributing" class="tab-content">
-            <h2>Contributing</h2>
-            <p>To contribute to the Astral Project Create a Pull Request for new features, or an issue report for any bugs found in the project to the <a href="https://github.com/zKiwiko/Astral">Github Repository</a> or Discord Server.<br><br>Users will be Credited here for bug reports and requested features.</p>
-        </div>
+        <h2>Installation</h2>
+        <p>
+          A Few things are needed for Astral to function properly.<br /><br />Download
+          and Install the
+          <a href="https://github.com/nefarius/ViGEmBus">ViGEm Bus Driver</a>.
+          This is necassary to be able to Create the Virtual Controller you PC
+          will be taking inputs from to send to applications.<br /><br />Next
+          youre required to download and install
+          <a href="https://github.com/nefarius/HidHide">HIDHide</a> inorder to
+          hide your Physical controller from your system so Double input doesnt
+          happen, and force applications to use the Virtual Controller ViGEm
+          sets up.<br /><br />Lastly, youll have to install the correct
+          <a
+            href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170"
+            >VC Redist</a
+          >
+          version for your computer.<br /><br />After installing the required
+          software. Open the 'HIDHide Configuration Client'. In the
+          'Applications' tab, press the '+' at the bottom right, and go to where
+          you have Astral installed. Click on the 'Astral.exe' file and click
+          the 'Open' button in your file explorer. This will add Astral to the
+          white list and allow it to be able to see your controller.<br /><br />In
+          the 'Devices' tab, click the check box next to the name of your
+          controller. Afterwards, you should see a Red Lock appear next to it.
+          At the bottom Left of this tab, click the Check Box next to 'Enable
+          Device Hiding'. This will hide your controller from the rest of your
+          computer.<br /><br />Now download Astral from
+          <a href="https://github.com/zKiwiko/Astral">the Github Repository</a
+          >.<br /><br />If you need installation support, please join my discord
+          and ask for help.
+        </p>
+        <h2></h2>
+      </div>
 
-        <div id="pricing" class="tab-content">
-            <h2>Pricing</h2>
-            <p>Astral is FREE project, but donations are greatly appreciate to help with maintaining the project.</p>
-        </div>
+      <!-- Main tab: Usage -->
+      <div id="usage" class="tab-content">
+        <h2>Usage</h2>
+        <p>Instructions on how to use the project, with examples.</p>
+        <pre><code>node index.js</code></pre>
+      </div>
+
+      <div id="contributing" class="tab-content">
+        <h2>Contributing</h2>
+        <p>
+          To contribute to the Astral Project Create a Pull Request for new
+          features, or an issue report for any bugs found in the project to the
+          <a href="https://github.com/zKiwiko/Astral">Github Repository</a> or
+          Discord Server.<br /><br />Users will be Credited here for bug reports
+          and requested features.
+        </p>
+      </div>
+
+      <div id="pricing" class="tab-content">
+        <h2>Pricing</h2>
+        <p>
+          Astral is FREE project, but donations are greatly appreciate to help
+          with maintaining the project.
+        </p>
+      </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 kiwiko</p>
-        <p> 
-          <a href="https://github.com/zKiwiko/">
-            <span class="social-icon fab fa-github"></span>  
-          </a>
-          <a href="https://discord.gg/yourdiscordinvite">
-            <span class="social-icon fab fa-discord"></span>  
-          </a>
-        </p>
+      <p>&copy; 2024 kiwiko</p>
+      <p>
+        <a href="https://github.com/zKiwiko/">
+          <span class="social-icon fab fa-github"></span>
+        </a>
+        <a href="https://discord.gg/yourdiscordinvite">
+          <span class="social-icon fab fa-discord"></span>
+        </a>
+      </p>
     </footer>
-    
+
     <script src="scripts.js"></script>
     <script src="prism.js"></script>
-
-</body>
+  </body>
 </html>
