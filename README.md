@@ -1,4 +1,5 @@
 # Astral
+
 #### Disclaimer: This project is not open source. This Repository is for ease of download as well as documentation for the project.
 
 'Astral' is a program that intergrates controller scripting/emulating into [Lua lang](https://lua.org). Its made to bring controller scripting to PC without the need of purchasing a physical device.
@@ -8,7 +9,7 @@ Astral uses a variety of frameworks to bring the best performance into scripting
 
 - [ViGEm Client](https://github.com/nefarius/ViGEmClient) // Used along side the ViGEm Bus Driver to be able to set data to the virtual controller.
 
-- [ViGEm Bus Driver](https://github.com/nefarius/ViGEmBus) *
+- [ViGEm Bus Driver](https://github.com/nefarius/ViGEmBus) \*
 
 - [SDL 2](https://github.com/libsdl-org/SDL) // Used for gaining controller data
 
@@ -42,8 +43,9 @@ end
 ```
 
 # Packages and Modules
+
 Astral uses a `.ldll` (Lua Dynamic Linking Library) and `.clua` (compiled Lua) as package file types. They are both compiled by Astral; the only difference is the code inside them.
-`.ldll` files contain C++ code using the Lua Library and can be called at any point during run time, Similar to calling a `.dll` file in Python or Lua. `.ldll` files can contain 
+`.ldll` files contain C++ code using the Lua Library and can be called at any point during run time, Similar to calling a `.dll` file in Python or Lua. `.ldll` files can contain
 new globals Astral doesnt already contain. `.clua` contains compiled Lua code which can contain generic Lua code along with globals declared by Astral.
 
 Astral has many built in Modules usable within your Lua Script using the "require()" function. Default Lua Modules like math, io, coroutine, dbug, base64, package, string, and table modules
@@ -51,14 +53,18 @@ are all supported natively.
 The Build in Modules Astral adds can be seen down below.
 
 ## cmath
+
 The cmath module holds math functions that are calculated in C++ opposed from lua. Aswell as some for quality of life.
 The code below shows how to import it into your project. Please note that it is case sensitive and can only be imported as seen here.
 It is not required to assign it to a variable but it is recommended for simplicity.
+
 ```lua
 m = require("cmath")
 ```
+
 The cmath module currently holds 2 functions: `convert` and `clamp`.
 Convert is a quality of life function, and converts any integer or decimal number into the Stick Resolution equivelent.
+
 ```lua
 m = require("cmath")
 
@@ -67,17 +73,22 @@ print(m.convert(100)) -- will Print 32767
 print(m.clamp(11, 0, 10)) -- will print 10.
 end
 ```
+
 `clamp` has 3 parameters. `number to clamp`, `min value`, `max value`. It will clamp the `number to clamp` between the min and max range.
 `convert` has 1 parameter and can hold any number type except hexdecimal numbers like 0x01.
 
 ## globals
+
 The `globals` module contains global variables useable within your code, and are quality of life in most cases.
 It can be imported into your code with the `require()` function native to lua as seen below.
 it is not necassary to assign it to a variable, but it is highly recommended for simplicity.
+
 ```lua
 g = require("globals")
 ```
+
 the `globals` module holds 3 values/variables.
+
 ```lua
 g = require("globals")
 function Main()
@@ -87,19 +98,24 @@ print(g.unset) -- will print 0
 print(g.res[100]) -- will print 32767
 end
 ```
+
 `g.res[]` holds stick resolution numbers that equate to the whole number put into it. Which can mostly be used when working with
 [get_axis](#get_axis) and [set_axis](#set_axis).
 
 Its here as an alternative to the `convert` function in the cmath module.
 
 ## https
+
 The `https` module contains multiple functions used for Https requests. Such as GET, POST, PUT, and DELETE.
 It can be imported into your code with the `require()` function native to lua as seen below.
 It is not necassary to assign a variable to it, but it is highly recommended for simplicity.
+
 ```lua
 h = require("https")
 ```
+
 The `https` module holds 4 functions.
+
 ```lua
 h = require("https")
 function Main()
@@ -109,33 +125,41 @@ print(h.put(url, data)) -- will print the `data` you put to a API through the ur
 print(h.delele(url, data)) -- will print the `data` you delete form API though the url param. (json data)
 end
 ```
+
 The post, put, and delete functions only send/del data in a JSon format. Mostly for security.
 
 # Global Functions
+
 Functions usable within your lua script.
 
 ## init
+
 the `init` function is extremely important. Without it, you cannot create the Virtual Controller needed for scripting. Dont Forget it.
 Its not a required function as [package files](#Packages) wouldnt be able to run without having an `init`, creating more than one Virutal Controller.
 
 ```lua
 init(num)
 ```
+
 The num parameter can hold a 0 or 1. 0 to create an Xbox 360 (xinput) controller. and 1 to create a Dualshock (directinput) controller.
 This way, Astral can be used with Remote Play for both Xbox Series X|S, Xbox One, PlayStation 4, and PlayStation 5 consoles.
 
 ## loopbreak
+
 `loopbreak` will allow you to break out early from the Main loop. Stopping the scripts execution.
+
 ```lua
 function Main()
 print("Hello World")
 loopbreak()
 end
 ```
+
 The example code will print out 'Hello World' once, then stop the main loop.
 If `loopbreak` wasnt there, it would print 'Hello World' as long as it is running or until the user stops the script.
 
 ## get_axis
+
 returns the current value of an axis within the parameter.
 
 ```lua
@@ -143,6 +167,7 @@ get_axis(Axis)
 ```
 
 Valid Axis' are:
+
 - LY -> Left Stick Up and Down on a Controller. Min range; -32767, Max range; 32767.
 - LX -> Left Stick Left and Right on a Controller. Min range; -32767, Max range; 32767.
 - RY -> Right Stick Up and Down on a Controller. Min range; -32767, Max range; 32767.
@@ -165,10 +190,13 @@ end
 This example will print "True" if the Left Trigger is bring pressed passed its halfway point.
 
 ## get_key
+
 Returns True if the parameter key is being pressed.
+
 ```lua
 get_key(Key)
 ```
+
 <details>
  <summary>Valid Keys Are viewable here</summary>
  
@@ -350,14 +378,17 @@ get_key(Key)
 </details>
 
 An example is as follows:
+
 ```lua
 if get_key("W") then
  set_axis("LY", 32767)
 end
 ```
+
 This example will set the Left Sticks Y axis fully Upward as long as W is being pressed.
 
 ## get_val
+
 Returns the current state of a controller face button. 1; True, 0; False.
 
 ```lua
@@ -365,6 +396,7 @@ get_val(Button)
 ```
 
 Valid Buttons are:
+
 - A -> A Button on an Xbox Controller, X on a Playstation one.
 - B -> B Button on an Xbox Controller, Circle on a Playstation one.
 - X -> X Button on an Xbox Controller, Square on a Playstation one.
@@ -389,44 +421,57 @@ Valid Buttons are:
 Current Astral doesn't support the Share button on an Xbox controller, or the Touchpad on a Playstation Controller.
 
 An example using these buttons are as follows:
+
 ```lua
-if get_val("A") then 
- print("True") 
+if get_val("A") then
+ print("True")
 end
 ```
+
 This example will print "True" if the A button is being pressed.
 
 ## get_press
+
 Returns true when a button is just pressed, different from "get_val" as get_val will always return true if the button is pressed.
+
 ```lua
 get_press(Button)
 ```
+
 Valid buttons can be found [here](#get_val), aswell as what they correlate to for their respective platform.
 
 An example is as follows:
+
 ```lua
 if get_press("A") then
  print("A was pressed")
 end
 ```
+
 This example will print the message when the A button is just pressed. But wont if its held down afterward.
 
 ## get_release
+
 Returns true when a button is released after being pressed.
+
 ```lua
 get_release(Button)
 ```
+
 Valid buttons can be found [here](#get_val), aswell as what they correlate to for their respective platform.
 
 An example is as follows:
+
 ```lua
 if get_release("A") then
  print("A was just released")
 end
 ```
+
 This example will print the message if the A button is released after being pressed.
 
 ## set_val
+
 Will set a face button a value of 1 or 0. 0 being unpressed, 1 being pressed.
 
 ```lua
@@ -438,15 +483,18 @@ set_val(button, 0) -- Set its state to 0; unpressing it.
 Valid Buttons can be found in [here](#get_val), aswell as what they correlate for their respective platform.
 
 An example of using this function is as follows:
+
 ```lua
 if get_val("A") then
  set_val("B", 1)
  print("A is Pressed")
 end
 ```
+
 In this example, if you press the A button, Itll press the B button aswell as printing the message.
 
 ## set_axis
+
 Will set a controller axis to a value.
 
 ```lua
@@ -455,13 +503,14 @@ set_axis(Axis, Int)
 
 Valid Axis' can be seen [here](#get_axis).
 
-The Int param can hold a number between -32768 to 32767. 
+The Int param can hold a number between -32768 to 32767.
 On an X axis, 32767 is fully right, and -32768 is fully left.
 On an Y axis, 32767 is fully down, and -32768 is fully up.
 
 Setting trigger axis' values are different from SDL, as SDL uses ranges from -32768 to 32767, while ViGEm uses ranges from 0 - 255. 0 being unpressed, 255 being full pressed.
 
 An example of using this is as follows:
+
 ```lua
 
 if get_val("A") then
@@ -469,62 +518,80 @@ if get_val("A") then
  set_axis("LT", 255)
 end
 ```
+
 In this example, when the A button is being pressed, Itll set the LX axis to 32767; Fully right. While also setting the Left Trigger axis to 255; fully pressed.
 
 ## polar_axis
+
 This function will spin the given stick in a circle.
+
 ```lua
 polar_axis(Polar Axis, Radius, Angle)
 ```
+
 Valid Polar Axis' are 'PL'; Left Stick, and 'PR'; Right Stick.
 
 The Radius parameter holds how big the circle drawn will be, and Angle determines how fast it does spin.
 
 An example is as follows:
+
 ```lua
 if get_axis("LT") >= gres[90] and get_axis("RT") >= gres[90] then
         polar_axis("PL", 20, 20)
 end
 ```
+
 This example will spin the Left Stick with a radius of 20 (away from 0) as long as the Left and Right Trigger are held down fully.
 
 ## convert
+
 Converts a int or floating point number into a valid stick resolution value.
+
 ```lua
 convert(num)
 ```
+
 The num parameter can hold either an Integer; A whole number, Or a Float number; a decimal number.
 
 A quick example of what itll return is as follows:
+
 ```lua
 print(convert(1)) -- prints 328
 print(convert(1.25)) -- prints 409
 ```
+
 Converted values can be used with set_axis to set decimal values to the respected axis.
+
 ```lua
 set_axis("LX", convert(1.25)) -- will set the LX axis to 409
 ```
 
 ## sleep
+
 Sleeps the scripts run time for a set number of miliseconds before running again.
 sleep can be used to create a delay in functions, or the script as a whole.
 
 ```lua
 sleep(num)
 ```
+
 The num parameter can only hold an integer; whole number.
 
 ## loopctrl
+
 Change the current speed at which controller updates are handled.
 Default value is 16. One update every 60 frames.
 
 ```lua
 loopctrl(num)
 ```
+
 The num parameter has to be an integer; whole number, and also greater than 0. Any value close to 0 can lead to high cpu or ram usage.
 
 ## get_loopctrl
+
 Returns the current loop delay.
+
 ```lua
 get_loopdelay()
 ```
@@ -533,13 +600,3 @@ get_loopdelay()
 
 using while or for loops in your Lua script may cause issues. The lua code is ran in a threaded loop along side a C++ function that maps physical inputs to the virtual controller.
 Be careful when using loops.
-
-
-
-
-
-
-
-
- 
-

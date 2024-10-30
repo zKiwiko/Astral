@@ -71,7 +71,7 @@
 
         <!-- Sub-tab content -->
         <div id="Functions" class="sub-tab-content active">
-          <h3>Functions</h3>
+          <h3>Logical Functions</h3>
           <hr class="dim-seperator" />
           <h4>Main</h4>
           <p>
@@ -91,23 +91,158 @@ end</code></pre>
             need to be called, Astral will run it automatically.
           </p>
 
-          <hr class="dim-seperator" />
-          <h4>init</h4>
+            <hr class="dim-seperator" />
+            <h4>init</h4>
           <p>
             The `init` function is required to have to create the virtual
             controller.
           </p>
-          <h5>Syntax</h5>
-          <pre><code class="language-lua">init(int)</code></pre>
-          <h5>Parameters</h5>
-          <p>`init` holds 1 parameter, that being an integer of 0 or 1.</p>
-          <pre><code class="language-lua">init(0) -- will create a virtual X360 Controller
+            <h5>Syntax</h5>
+            <pre><code class="language-lua">init(int)</code></pre>
+            <h5>Parameters</h5>
+            <p>`init` holds 1 parameter, that being an integer of 0 or 1.</p>
+            <pre><code class="language-lua">init(0) -- will create a virtual X360 Controller
 init(1) -- will create a virtual DualShock 4 Controller</code></pre>
+
+            <hr class="dim-seperator" />
+
+            <h4>loopbreak</h4>
+            <h5>Syntax</h5>
+            <p>`loopbreak` is a function to break out of the Main loop early.</p>
+            <pre><code class="language-lua">loopbreak()</code></pre>
+            <h5>Parameters</h5>
+            <p>`loopbreak` doesnt take any parameters.</p>
+            <hr class="dim-seperator"/>
+            
+            <h4>loopctrl</h4>
+            <p>Change the current speed at which the Lua scripts update. Aswell as controller remap updates.</p>
+            <h5>Syntax</h5>
+            <pre><code class="language-lua">loopctrl(int)</code></pre>
+            <h5>Parameters</h5>
+            <p>`loopctrl` takes an integer parameter representing the speed at which the Lua scripts update. The higher the number, the slower the updates. The default speed is 16 for 60 FPS.</p>
+            <pre><code class="language-lua">loopctrl(50) -- will set the Lua scripts update speed to 50</code></pre>
+            <hr class="dim-seperator"/>
+
+            <h4>get_loopctrl</h4>
+            <p>Returns the current speed at which the Lua scripts update.</p>
+            <h5>Syntax</h5>
+            <pre><code class="language-lua">get_loopctrl()</code></pre>
+            <h5>Parameters</h5>
+            <p>`get_loopctrl` returns an integer representing the current speed at which the Lua scripts update.</p>
+            <pre><code class="language-lua">print(get_loopctrl()) -- will print the current Lua scripts update speed.</code></pre>
+            <hr class="dim-seperator"/>
+
+            <h3>Controller Functions</h3>
+            <hr class="dim-seperator" />
+
+            <h4>get_val</h4>
+            <p>Returns the current state of a button. 0 for unpressed, 1 or pressed.</p>
+            <h5>Syntax</h5>
+            <pre><code class="language-lua">get_val(string)</code></pre>
+            <h5>Parameters</h5>
+            <p>`get_val` takes a string parameter representing the button you want to check. The button names are case sensitive and must be capital.</p>
+            <pre><code class="language-lua">print(get_val("A")) -- will print the state of the button.</code></pre>
+            <hr class="dim-seperator"/>
+
+
+            <h4>get_axis</h4>
+            <p>Returns the value of a given axis.</p>
+            <h5>Syntax</h5>
+            <pre><code class="language-lua">get_axis(string)</code></pre>
+            <h5>Parameters</h5>
+            <p>`get_axis` takes a string parameter representing the axis you want to check. The axis names are case sensitive and must be capital.</p>
+            <pre><code class="language-lua">print(get_axis("LX")) -- will print the value of the Left Stick's Right Axis</code></pre>
+            <hr class="dim-seperator"/>
+
+
+            <h4>get_key</h4>
+            <p>Returns the state of a given key. 0 for unpressed, 1 or pressed.</p>
+            <h5>Syntax</h5>
+            <pre><code class="language-lua">get_key(string)</code></pre>
+            <h5>Parameters</h5>
+            <p>`get_key` takes a string parameter representing the key you want to check. The key names are case sensitive and must be capital.</p>
+            <pre><code class="language-lua">print(get_key("X")) -- will print the state of the X key on your keyboard.</code></pre>
+            <hr class="dim-seperator"/>
+
+
+            <h4>get_press</h4>
+            <p>Returns 1 if a given key is just pressed, otherwise returns 0.</p>
+            <h5>Syntax</h5>
+            <pre><code class="language-lua">get_press(string)</code></pre>
+            <h5>Parameters</h5>
+            <p>`get_press` takes a string parameter representing the button you want to check for a press. The button names are case sensitive and must be capital.</p>
+            <pre><code class="language-lua">print(get_press("A")) -- will print 1 if the A Button is just pressed.</code></pre>
+            <hr class="dim-seperator"/>
+
+
+            <h4>get_release</h4>
+            <p>Returns 1 if a given button is just released, otherwise returns 0.</p>
+            <h5>Syntax</h5>
+            <pre><code class="language-lua">get_release(string)</code></pre>
+            <h5>Parameters</h5>
+            <p>`get_release` takes a string parameter representing the button you want to check for a release. The button names are case sensitive and must be capital.</p>
+            <pre><code class="language-lua">print(get_release("A")) -- will print 1 if the A Button is just released.</code></pre>
+            <hr class="dim-seperator"/>
+
+            <h4>set_val</h4>
+            <p>Sets the state of a given button to 1 for a press, 0 for a unpress.</p>
+            <h5>Syntax</h5>
+            <pre><code class="language-lua">set_val(string, int)</code></pre>
+            <h5>Parameters</h5>
+            <p>`set_val` takes two parameters, a string parameter representing the button you want to set, and an integer representing the state of the button. The state should be 0 for unpress and 1 for press.</p>
+            <pre><code class="language-lua">set_val("A", 1) -- will set the A Button to a press.</code></pre>
+            <hr class="dim-seperator"/>
+
+            <h4>set_axis</h4>
+            <p>Sets the value of a given axis.</p>
+            <h5>Syntax</h5>
+            <pre><code class="language-lua">set_axis(string, int)</code></pre>
+            <h5>Parameters</h5>
+            <p>`set_axis` takes two parameters, a string parameter representing the axis you want to set, and a integer representing the axis' value. The value should be between -32767 and 32767.</p>
+            <pre><code class="language-lua">set_axis("LX", 32767) -- will set the Left Stick's Right Axis to 32767 (fully right).</code></pre>
+            <hr class="dim-seperator"/>
+
+            <h4>polar_axis</h4>
+            <p>Spins a given stick.</p>
+            <h5>Syntax</h5>
+            <pre><code class="language-lua">polar_axis(string, int: Radius, int: Speed)</code></pre>
+            <h5>Parameters</h5>
+            <p>`polar_axis` takes three parameters, a string parameter representing the stick you want to spin, an integer representing the radius of the spin / size of the spin, and an integer representing the speed of the spin. The radius should be between 0 and 100, and the speed can be any integer, but recommended to be 0 - 360.</p>
+            <hr class="dim-seperator"/>
+
+
         </div>
 
         <div id="Modules" class="sub-tab-content">
-          <h3>Modules</h3>
-          <p>Provide a detailed description of the project's architecture.</p>
+            <h3>Modules</h3>
+            <p>These modules are usable within your scripts to provide extra functionality for your scripts.</p>
+            <hr class="dim-seperator"/>
+
+            <h4>cmath</h4>
+            <p>The cmath module adds a couple math functions that are calculated in C++. Aswell as adding QOL math functions for convience.</p>
+            <h5>Importing</h5>
+            <pre><code class="language-lua">m = require("cmath")</code></pre>
+            <h5>Functions</h5>
+            <pre><code class="language-lua">m.convert(Integer | float)</code></pre>
+            <p>The `convert` function will convert the number you enter inside its parameter to a given stick resolution. I.e; if you put in "100" itll output 32767.</p>
+            <pre><code class="language-lua">m.clamp(Integer | float, Integer | float, Integer | float)</code></pre>
+            <p>The `clamp` function will limit the number to the provided range. I.e; if you do "m.clamp(100, 50, 90)"; itll output 90 as thats the clamped range.</p>
+            <hr class="dim-seperator"/>
+
+            <h4>globals</h4>
+            <p>The globals module gives access to predefined variables usable in your scripts.</p>
+            <h5>Importing</h5>
+            <pre><code class="language-lua">g = require("globals")</code></pre>
+            <h5>Variables</h5>
+            <pre><code class="language-lua">g.default</code></pre>
+            <p>This variable holds the default value of 0.</p>
+            <pre><code class="language-lua">g.set</code></pre>
+            <p>This function sets the default value of 32767. and can be inverted for a negative value.</p>
+            <pre><code class="language-lua">g.unset</code></pre>
+            <p>This function sets the default value back to 0.</p>
+            <pre><code class="language-lua">g.res[int]</code></pre>
+            <p>This variable holds stick resolution numbers that equate to the integer inside its parameter as long as its between -100 and 100. Stick resolutions can be viewed <a href="https://github.com/zKiwiko/Stick-Resolutions">Here</a>. Negative values also work. so -100 will output -32767.</p>
+
         </div>
       </div>
 
