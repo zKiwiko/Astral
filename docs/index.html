@@ -64,6 +64,7 @@
         <nav class="sub-nav">
           <button class="sub-tab-button active" data-tab="Functions">Functions</button>
           <button class="sub-tab-button" data-tab="Modules">Modules</button>
+          <button class="sub-tab-button" data-tab="Examples">Code Examples</button>
           <button class="sub-tab-button" data-tab="ValidInputs">Valid Inputs</button>
         </nav>
 
@@ -208,9 +209,6 @@ init(1) -- will create a virtual DualShock 4 Controller</code></pre>
             <p>`polar_axis` takes three parameters, a string parameter representing the stick you want to spin, an integer representing the radius of the spin / size of the spin, and an integer representing the speed of the spin. The radius should be between 0 and 100, and the speed can be any integer, but recommended to be 0 - 360.</p>
             <hr class="dim-seperator"/>
 
-
-
-
         </div>
 
         <div id="Modules" class="sub-tab-content">
@@ -299,6 +297,44 @@ init(1) -- will create a virtual DualShock 4 Controller</code></pre>
                 "PL" -> Left Stick (for set_polar function)<br>
                 "PR" -> Right Stick (for set_polar function)<br>
             </p>
+        </div>
+
+        <div id="Examples" class="sub-tab-content">
+          <h3>Requiring Other Files</h3>
+          <hr class="dim-seperator"/>
+          <p>
+            Requiring other files into your main lua file can be important for using user created modules, or organizing your code.<br>
+            Astral uses a different way of importing files than regular lua. If your directory looks like: <br><br>
+            main.lua <br>
+            include <br>
+            |_ functions.lua <br><br>
+            If you wanted to import the functions.lua file into your main.lua file, need to do the following:<br><br>
+
+            <pre><code class="language-lua">
+-- Main.lua file
+require("functions")
+-- optionally you can assign it to a variable
+f = require("functions")
+
+function Main()
+  f.add(10, 10) -- if you assigned it to a variable
+  add(10, 10) -- if you didnt assign it to a variable
+  loopbreak()
+end
+
+-- functions.lua file
+local func = {}
+
+function func.add(a, b)
+  return a + b 
+end
+
+return func
+            </code></pre>
+            With Astral you do not need to specify the folder the file is in with something like "require("include.functions")" <br>
+            you would just write the name of the file without the .lua extension.
+          </p>
+
         </div>
 
       </div>
