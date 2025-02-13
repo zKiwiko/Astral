@@ -10,7 +10,8 @@ add_executable(${PROJECT_NAME}
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/vigem
+    ${CMAKE_CURRENT_SOURCE_DIR}/libs/ViGEm
+    ${CMAKE_CURRENT_SOURCE_DIR}/libs
     "C:/Lua" # When building, change this to your Lua installation Directory. Should have all the .h and .c files needed.
 )
 
