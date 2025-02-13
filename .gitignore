@@ -1,4 +1,6 @@
 build/
+SDL3/
+ViGEm/
 .cache/
 lua/
 *.ps1
